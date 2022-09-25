@@ -1,15 +1,19 @@
-name: 'Resume Action'
-description: 'Generates a PDF resume from Markdown'
-author: 'Abhi347'
+name: "Resume Action"
+description: "Generates a PDF resume from Markdown"
+author: "Abhi347"
 inputs:
   title:
     required: true
-    description: 'Title of the file'
-    default: 'Resume'
+    description: "Title of the file"
+    default: "Resume"
   mdFilePath:
     required: true
-    description: 'Path of the markdown file'
-    default: 'resume.md'
+    description: "Path of the markdown file"
+    default: "resume.md"
+  isTest:
+    required: false
+    description: Running the action in test environment
+    default: "false"
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node16"
+  main: "dist/index.js"
