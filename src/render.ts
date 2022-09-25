@@ -7,9 +7,9 @@ import {generateFragment, renderFinalHtml} from './pug';
 import {renderPdf} from './puppeteer';
 
 const buildDir = './build';
+const isTest = core.getBooleanInput('isTest');
 
 const getMdFileContent = () => {
-  const isTest = core.getBooleanInput('isTest');
   if (isTest) {
     return readFileSync('./template/resume.md');
   }
@@ -24,13 +24,15 @@ export const startRender = async () => {
     core.debug('Main: rendering the HTML');
     renderFinalHtml();
     core.debug('Main: Rendering the PDF');
-    await renderPdf({
-      buildDir,
-      pdfFileName: `${buildDir}/${core.getInput(
-        'title',
-      )} ${new Date().toISOString()}.pdf`,
-      port: Number(PORT),
-    });
+    if (!isTest) {
+      await renderPdf({
+        buildDir,
+        pdfFileName: `${buildDir}/${core.getInput(
+          'title',
+        )} ${new Date().toISOString()}.pdf`,
+        port: Number(PORT),
+      });
+    }
     core.debug('Main: Finished Rendering the PDF');
   } catch (e) {
     core.error(e as Error);
