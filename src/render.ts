@@ -1,15 +1,24 @@
 import * as core from '@actions/core';
 
 import {PORT} from './constants';
+import {readFileSync} from './file';
 import {getFileContent} from './github';
 import {generateFragment, renderFinalHtml} from './pug';
 import {renderPdf} from './puppeteer';
 
 const buildDir = './build';
 
+const getMdFileContent = () => {
+  const isTest = core.getBooleanInput('isTest');
+  if (isTest) {
+    return readFileSync('./template/resume.md');
+  }
+  return getFileContent(core.getInput('mdFilePath'));
+};
+
 export const startRender = async () => {
   try {
-    const fileContent = await getFileContent(core.getInput('mdFilePath'));
+    const fileContent = await getMdFileContent();
     core.debug('Main: Generating Fragment from Markdown');
     await generateFragment(fileContent);
     core.debug('Main: rendering the HTML');
