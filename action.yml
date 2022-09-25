@@ -1,11 +1,15 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Resume Action'
+description: 'Generates a PDF resume from Markdown'
+author: 'Abhi347'
 inputs:
-  milliseconds: # change this
+  title:
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: 'Title of the file'
+    default: 'Resume'
+  mdFilePath:
+    required: true
+    description: 'Path of the markdown file'
+    default: 'resume.md'
 runs:
   using: 'node16'
   main: 'dist/index.js'

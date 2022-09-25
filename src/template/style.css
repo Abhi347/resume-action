@@ -1,0 +1,137 @@
+body {
+  font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light",
+    sans-serif, "Droid Sans Fallback";
+  /* font-family: "Avenir Next",HelveticaNeue-Light,Helvetica Neue,Helvetica,Arial,sans-serif; */
+  font-size: 14px;
+  padding: 0 12px;
+  line-height: 22px;
+  word-wrap: break-word;
+}
+
+body.scrollBeyondLastLine {
+  margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+a {
+  color: #4080d0;
+  text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 1px solid -webkit-focus-ring-color;
+  outline-offset: -1px;
+}
+
+p,
+ul {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+hr {
+  border: 0;
+  height: 2px;
+  border-bottom: 2px solid;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+h1,
+h2,
+h3 {
+  font-family: "Avenir Next", "Segoe WPC", "Segoe UI", "SFUIText-Light",
+    "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback",
+    HelveticaNeue-Light, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  padding-bottom: 0.3em;
+  line-height: 1.2;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+h1,
+h2 {
+  font-weight: normal;
+}
+
+h2 {
+  /* margin-top: 5px; */
+  margin-bottom: 5px;
+}
+
+h3 {
+  font-weight: normal;
+  margin-bottom: 0px;
+  /* margin-top: 25px; */
+  border-bottom: 1px solid rgb(217, 217, 217);
+}
+
+h4 {
+  margin-top: 2px;
+  margin-bottom: 0px;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+  font-size: inherit;
+  line-height: auto;
+}
+
+a:hover {
+  color: #4080d0;
+  text-decoration: underline;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table > thead > tr > th {
+  text-align: left;
+  border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+  padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+  border-top: 1px solid;
+}
+
+blockquote {
+  margin: 0 7px 0 5px;
+  padding: 0 16px 0 10px;
+  border-left: 5px solid;
+}
+
+code {
+  font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New",
+    monospace, "Droid Sans Fallback";
+  font-size: 14px;
+  line-height: 19px;
+}
+
+body.wordWrap pre {
+  white-space: pre-wrap;
+}
