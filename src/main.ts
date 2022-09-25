@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-import { startRender } from './render';
+import {startRender} from './render';
 import {startExpressServer, stopExpressServer} from './server';
 
 const run = async (): Promise<void> => {

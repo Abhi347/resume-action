@@ -21,4 +21,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./
         with:
-          milliseconds: 1000
+          title: My Amazing Resume
+          mdFilePath: resume.md

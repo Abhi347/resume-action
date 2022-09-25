@@ -5,14 +5,8 @@ import path from 'path';
 import markdown from 'markdown-it';
 import pug from 'pug';
 import puppeteer, {PDFOptions} from 'puppeteer';
-import {promisify} from 'util';
 import {PORT, STATIC_DIR_PATH} from './constants';
-import {getFileContent, readRepoFile} from './github';
-
-const FILE_NAME_PREFIX = 'Resume';
-
-const readFileAsync: (path: string) => Promise<string | number | Buffer> =
-  promisify(fs.readFile);
+import {getFileContent} from './github';
 
 const md = markdown('commonmark');
 
@@ -43,7 +37,9 @@ const renderPdf = async () => {
   fs.removeSync(buildDir);
   fs.mkdirSync(buildDir);
   const pagePath = `http://localhost:${PORT}/page.html`;
-  const exportFilename = `${buildDir}/${FILE_NAME_PREFIX} ${getCurrentDate()}.pdf`;
+  const exportFilename = `${buildDir}/${core.getInput(
+    'title',
+  )} ${getCurrentDate()}.pdf`;
   const browser = await puppeteer.launch({
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });

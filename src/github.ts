@@ -17,5 +17,5 @@ export const readRepoFile = async (filePath: string) => {
 
 export const getFileContent = async (filePath: string) => {
   const {data} = await readRepoFile(filePath);
-  return (data as unknown as any).content as string;
+  return (data as typeof data & {content: string}).content;
 };

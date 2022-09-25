@@ -8,7 +8,7 @@ app.use(express.static(STATIC_DIR_PATH));
 
 let server: Server;
 
-export const startExpressServer = () => {
+export const startExpressServer = async () => {
   return new Promise((resolve, reject) => {
     server = app.listen(PORT, (err?: Error) => {
       if (err) {
@@ -20,7 +20,7 @@ export const startExpressServer = () => {
   });
 };
 
-export const stopExpressServer = (): Promise<void> => {
+export const stopExpressServer = async (): Promise<void> => {
   return new Promise((resolve, reject) => {
     server.close(err => {
       if (err) {
