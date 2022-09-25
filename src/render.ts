@@ -41,6 +41,7 @@ const renderPdf = async () => {
     'title',
   )} ${getCurrentDate()}.pdf`;
   const browser = await puppeteer.launch({
+    headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
   //     {
