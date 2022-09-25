@@ -1,6 +1,6 @@
 import {getOctokit} from '@actions/github';
 
-const GH_TOKEN = process.env.GITHUB_TOKEN || '';
+const GH_TOKEN = process.env.GITHUB_TOKEN || process.env.TEST_TOKEN || '';
 
 const octokit = getOctokit(GH_TOKEN);
 
